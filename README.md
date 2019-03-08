@@ -1,6 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses google maps api.
-To make this project running correctly, you need to add your google API key at two places:
-index.html search for 'Paste your key here' and replace the key in script tag
+## Google Maps Api Configuration
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses google maps api.<br>
+To make this project running correctly, you need to have google API key and needs to be inserted at two places:<br>
+index.html search for 'Paste your key here' comment and replace the key in script tag<br>
 second in MapRender.js search for 'googleMapURL' and replace the key there
 
 ## Available Scripts
