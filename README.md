@@ -1,3 +1,8 @@
+## Prequisite
+
+To run the project on your machine you need to have node installed in your machine<br>
+Run the command npm install which will install all the dependecies
+
 ## Google Maps Api Configuration
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses google maps api.<br>
