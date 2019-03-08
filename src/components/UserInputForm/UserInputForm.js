@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import AutoComplete from '../AutoComplete/AutoComplete';
 import './UserInputForm.css';
 
@@ -76,5 +78,16 @@ class UserInputForm extends Component {
     );
   }
 }
+
+UserInputForm.propTypes = {
+  isFormValid: PropTypes.bool,
+  error: PropTypes.bool,
+  errorMsg: PropTypes.string,
+  totalTime: PropTypes.number,
+  totalDistance: PropTypes.number,
+  onSubmit: PropTypes.func,
+  onOriginChng: PropTypes.func,
+  onDestinationChng: PropTypes.func
+};
 
 export default UserInputForm;

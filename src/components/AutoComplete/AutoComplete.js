@@ -1,5 +1,6 @@
 /*global google*/
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './AutoComplete.css';
 
 class AutoComplete extends Component {
@@ -35,5 +36,11 @@ class AutoComplete extends Component {
     );
   }
 }
+
+AutoComplete.propTypes = {
+  id: PropTypes.string,
+  onPlaceChanged: PropTypes.func,
+  placeholderText: PropTypes.string
+};
 
 export default AutoComplete;
