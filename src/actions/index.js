@@ -28,7 +28,7 @@ export const fetchToken = (origin, destination) => {
 export const fetchFailure = () => {
   return {
     type: FETCH_FAILURE,
-    payload: { errorMsg: 'Some Error Occured' }
+    payload: { errorMsg: 'Error encountered on server' }
   };
 };
 
