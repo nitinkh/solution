@@ -1,7 +1,8 @@
 ## Prequisite
 
 To run the project on your machine you need to have node installed in your machine<br>
-Run the command npm install which will install all the dependecies
+Run the command npm install which will install all the dependecies<br>
+Driving route can be tested by adding Hoi Fai Road, Hong Kong as origin an Hoi Shing Road, Tsuen Wan, Hong Kong as destination
 
 ## Google Maps Api Configuration
 
