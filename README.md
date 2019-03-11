@@ -1,13 +1,56 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+
 ## Prequisite
 
 To run the project on your machine you need to have node installed in your machine<br>
 Run the command npm install which will install all the dependecies<br>
-Driving route can be tested by adding Hoi Fai Road, Hong Kong as origin an Hoi Shing Road, Tsuen Wan, Hong Kong as destination
+Driving route can be easily tested by adding Hoi Fai Road, Hong Kong as origin and Hoi Shing Road, Tsuen Wan, Hong Kong as destination
 
 ## Google Maps Api Configuration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses google maps api.<br>
 To make this project running correctly, you need to have google API key and needs to be inserted in .env file
+
+## Folder Structure
+
+After running npm install your project should look like this
+
+```
+solution/
+  README.md
+  node_modules/
+  package.json
+  .env
+  public/
+    index.html
+    favicon.ico
+  src/
+    App.css
+    App.js
+    index.css
+    index.js
+    logo.svg
+    axios.js
+    configureStore.js
+    serviceWorker.js
+    actions/
+        action.test.js
+        actionTypes.js
+        index.js
+    components/
+        AutoComplete/
+            AutoComplete.css
+            AutoComplete.js
+        MapRenderer/
+            MapRender.js
+        UserInputForm/
+            UserInputForm.css
+            UserInputForm.js
+            UserInputForm.test.js
+    reducers/
+        index.js
+        respReducer.js
+        respReducer.test.js
+```
 
 ## Available Scripts
 
