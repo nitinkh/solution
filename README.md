@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [Prequisite](#prequisite)
 - [Google Maps Api Configuration](#google-maps-api-configuration)
 - [Folder Structure](#folder-structure)
-- [Client Messages](#client-behaviour-w.r.t-server-messages)
+- [Client Messages](#client-messages)
 
 ## Prequisite
 
@@ -59,7 +59,7 @@ solution/
         respReducer.test.js
 ```
 
-## Client Behaviour w.r.t Server Messages
+## Client Messages
 
 App will display Error Encountered on server if there is 500 status error from server<br>
 App will display Location is not accessible by car if server status is failure<br>
