@@ -1,12 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
+## Table of Contents
+
+- [Prequisite](#Prequisite)
+- [Google Maps Api Configuration](#Google Maps Api Configuration)
+- [Folder Structure](#Folder Structure)
+- [Client Behaviour w.r.t Server Messages](#Client Behaviour w.r.t Server Messages)
+
 ## Prequisite
 
 To run the project on your machine you need to have node installed in your machine<br>
 Run the command npm install which will install all the dependecies<br>
 Driving route can be easily tested by adding Hoi Fai Road, Hong Kong as origin and Hoi Shing Road, Tsuen Wan, Hong Kong as destination
 
-## Google Maps Api Configuration
+## Google-Maps-Api-Configuration
 
 To make this project running correctly, you need to have google API key and needs to be inserted in .env file
 
@@ -51,6 +58,12 @@ solution/
         respReducer.js
         respReducer.test.js
 ```
+
+## Client Behaviour w.r.t Server Messages
+
+App will display Error Encountered on server if there is 500 status error from server<br>
+App will display Location is not accessible by car if server status is failure<br>
+App will display waypoints if server status is success
 
 ## Available Scripts
 
