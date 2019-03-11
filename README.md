@@ -7,9 +7,7 @@ Driving route can be tested by adding Hoi Fai Road, Hong Kong as origin an Hoi S
 ## Google Maps Api Configuration
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses google maps api.<br>
-To make this project running correctly, you need to have google API key and needs to be inserted at two places:<br>
-index.html search for 'Paste your key here' comment and replace the key in script tag<br>
-second in MapRender.js search for 'googleMapURL' and replace the key there
+To make this project running correctly, you need to have google API key and needs to be inserted in .env file
 
 ## Available Scripts
 

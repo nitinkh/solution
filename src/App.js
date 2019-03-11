@@ -20,7 +20,8 @@ class App extends Component {
     this.state = {
       origin: [],
       destination: [],
-      isFormValid: true
+      isFormValid: true,
+      isMapLoaded: false
     };
   }
 
@@ -34,6 +35,14 @@ class App extends Component {
     this.setState({
       destination: [lat, lng]
     });
+  };
+
+  mapLoadedHandler = () => {
+    if (!this.state.isMapLoaded) {
+      this.setState({
+        isMapLoaded: true
+      });
+    }
   };
 
   submitHandler = () => {
@@ -58,16 +67,18 @@ class App extends Component {
         <div className='container py-5'>
           <div className='row'>
             <div className='col-12 col-md-3'>
-              <UserInputForm
-                isFormValid={this.state.isFormValid}
-                onSubmit={this.submitHandler}
-                error={this.props.response.error}
-                errorMsg={this.props.response.errorMsg}
-                totalTime={this.props.response.total_time}
-                totalDistance={this.props.response.total_distance}
-                onOriginChng={this.originChangedHandler}
-                onDestinationChng={this.destinationChangedHandler}
-              />
+              {this.state.isMapLoaded && (
+                <UserInputForm
+                  isFormValid={this.state.isFormValid}
+                  onSubmit={this.submitHandler}
+                  error={this.props.response.error}
+                  errorMsg={this.props.response.errorMsg}
+                  totalTime={this.props.response.total_time}
+                  totalDistance={this.props.response.total_distance}
+                  onOriginChng={this.originChangedHandler}
+                  onDestinationChng={this.destinationChangedHandler}
+                />
+              )}
             </div>
             <div className='col-12 col-md-9'>
               <MapRenderer
@@ -76,6 +87,7 @@ class App extends Component {
                 route={this.props.response.path}
                 origin={this.state.origin}
                 destination={this.state.destination}
+                mapLoaded={this.mapLoadedHandler}
               />
             </div>
           </div>
