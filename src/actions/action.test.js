@@ -5,7 +5,7 @@ describe('actions', () => {
   it('should create an action when there is backend failure', () => {
     const expectedAction = {
       type: types.FETCH_FAILURE,
-      payload: { errorMsg: 'Some Error Occured' }
+      payload: { errorMsg: 'Error encountered on server' }
     };
     expect(actions.fetchFailure()).toEqual(expectedAction);
   });
