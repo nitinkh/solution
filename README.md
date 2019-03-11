@@ -2,10 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Table of Contents
 
-- [Prequisite](#Prequisite)
-- [Google Maps Api Configuration](#Google Maps Api Configuration)
-- [Folder Structure](#Folder Structure)
-- [Client Behaviour w.r.t Server Messages](#Client Behaviour w.r.t Server Messages)
+- [Prequisite](#prequisite)
+- [Google Maps Api Configuration](#google-maps-api-configuration)
+- [Folder Structure](#folder-structure)
+- [Client Messages](#client-behaviour-w.r.t-server-messages)
 
 ## Prequisite
 
