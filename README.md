@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [Google Maps Api Configuration](#google-maps-api-configuration)
 - [Folder Structure](#folder-structure)
 - [Client Messages](#client-messages)
+- [Available Scripts](#available-scripts)
 
 ## Prequisite
 
