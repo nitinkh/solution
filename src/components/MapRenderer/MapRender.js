@@ -24,23 +24,29 @@ const MapRenderer = compose(
       this.props.mapLoaded();
     },
     componentWillReceiveProps(nextProps) {
-      let origin = nextProps.origin;
-      let destination = nextProps.destination;
-      if (nextProps.route.length > 0) {
-        origin = [22.317067, 114.158506];
-        destination = [22.371921, 114.109142];
+      if (nextProps.route.length < 1) {
+        return;
       }
       const DirectionsService = new google.maps.DirectionsService();
       DirectionsService.route(
         {
-          origin: new google.maps.LatLng(origin[0], origin[1]),
-          destination: new google.maps.LatLng(destination[0], destination[1]),
+          origin: new google.maps.LatLng(
+            nextProps.route[0][0],
+            nextProps.route[0][1]
+          ),
+          destination: new google.maps.LatLng(
+            nextProps.route[1][0],
+            nextProps.route[1][1]
+          ),
           travelMode: google.maps.TravelMode.DRIVING,
-          waypoints: nextProps.route.map(path => {
-            return {
-              location: new google.maps.LatLng(path[0], path[1])
-            };
-          })
+          waypoints: [
+            {
+              location: new google.maps.LatLng(
+                nextProps.route[2][0],
+                nextProps.route[2][1]
+              )
+            }
+          ]
         },
         (result, status) => {
           if (status === google.maps.DirectionsStatus.OK) {
@@ -59,7 +65,9 @@ const MapRenderer = compose(
       new google.maps.LatLng(props.defaultCenter.lat, props.defaultCenter.lng)
     }
   >
-    {<DirectionsRenderer directions={props.directions} />}
+    {props.route.length > 0 && (
+      <DirectionsRenderer directions={props.directions} />
+    )}
   </GoogleMap>
 ));
 

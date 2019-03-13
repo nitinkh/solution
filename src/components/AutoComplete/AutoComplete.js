@@ -5,7 +5,7 @@ import './AutoComplete.css';
 
 class AutoComplete extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.autoInput = React.createRef();
     this.autocomplete = null;
     this.inputChanged = this.inputChanged.bind(this);

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserInputForm from './components/UserInputForm/UserInputForm';
 import MapRenderer from './components/MapRenderer/MapRender';
 import { connect } from 'react-redux';
-import { fetchToken } from './actions';
+import { fetchToken, reset } from './actions';
 
 class App extends Component {
   static defaultProps = {
@@ -16,26 +16,12 @@ class App extends Component {
   };
 
   constructor(props) {
-    super(props);
+    super();
     this.state = {
-      origin: [],
-      destination: [],
       isFormValid: true,
       isMapLoaded: false
     };
   }
-
-  originChangedHandler = (lat, lng) => {
-    this.setState({
-      origin: [lat, lng]
-    });
-  };
-
-  destinationChangedHandler = (lat, lng) => {
-    this.setState({
-      destination: [lat, lng]
-    });
-  };
 
   mapLoadedHandler = () => {
     if (!this.state.isMapLoaded) {
@@ -45,8 +31,11 @@ class App extends Component {
     }
   };
 
-  submitHandler = () => {
-    let { origin, destination } = this.state;
+  resetClicked = () => {
+    this.props.reset();
+  };
+
+  submitHandler = (origin, destination) => {
     if (!origin.length || !destination.length) {
       this.setState({
         isFormValid: false
@@ -57,7 +46,7 @@ class App extends Component {
       isFormValid: true,
       isLoading: true
     });
-    this.props.onGetDetails(this.state.origin, this.state.destination);
+    this.props.onGetDetails(origin, destination);
   };
 
   render() {
@@ -73,10 +62,9 @@ class App extends Component {
                   onSubmit={this.submitHandler}
                   error={this.props.response.error}
                   errorMsg={this.props.response.errorMsg}
-                  totalTime={this.props.response.total_time}
-                  totalDistance={this.props.response.total_distance}
-                  onOriginChng={this.originChangedHandler}
-                  onDestinationChng={this.destinationChangedHandler}
+                  totalTime={this.props.response.totalTime}
+                  totalDistance={this.props.response.totalDistance}
+                  resetClicked={this.resetClicked}
                 />
               )}
             </div>
@@ -85,8 +73,6 @@ class App extends Component {
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
                 route={this.props.response.path}
-                origin={this.state.origin}
-                destination={this.state.destination}
                 mapLoaded={this.mapLoadedHandler}
               />
             </div>
@@ -106,7 +92,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onGetDetails: (origin, destination) =>
-      dispatch(fetchToken(origin, destination))
+      dispatch(fetchToken(origin, destination)),
+    reset: () => dispatch(reset())
   };
 };
 

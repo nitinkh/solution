@@ -1,15 +1,16 @@
 import {
   FECTH_INPROGRESS,
   FETCH_FAILURE,
-  FETCH_SUCCESS
+  FETCH_SUCCESS,
+  RESET
 } from '../actions/actionTypes';
 
 const initialState = {
   path: [],
   error: null,
   errorMsg: '',
-  total_time: null,
-  total_distance: null,
+  totalTime: null,
+  totalDistance: null,
   isLoading: false
 };
 
@@ -24,8 +25,8 @@ const reducer = (state = initialState, action) => {
         error: true,
         errorMsg: action.payload.errorMsg,
         isLoading: false,
-        total_distance: null,
-        total_time: null,
+        totalDistance: null,
+        totalTime: null,
         path: []
       };
     }
@@ -35,8 +36,8 @@ const reducer = (state = initialState, action) => {
           ...state,
           error: true,
           errorMsg: action.payload.error,
-          total_distance: null,
-          total_time: null,
+          totalDistance: null,
+          totalTime: null,
           isLoading: false,
           path: []
         };
@@ -45,13 +46,23 @@ const reducer = (state = initialState, action) => {
           ...state,
           error: false,
           path: [...action.payload.path],
-          total_time: action.payload.total_time,
-          total_distance: action.payload.total_distance,
+          totalTime: action.payload.total_time,
+          totalDistance: action.payload.total_distance,
           isLoading: false
         };
       } else {
         return state;
       }
+    }
+    case RESET: {
+      return {
+        path: [],
+        error: null,
+        errorMsg: '',
+        totalTime: null,
+        totalDistance: null,
+        isLoading: false
+      };
     }
     default:
       return state;

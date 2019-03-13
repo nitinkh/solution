@@ -2,7 +2,8 @@ import axios from '../axios';
 import {
   FECTH_INPROGRESS,
   FETCH_FAILURE,
-  FETCH_SUCCESS
+  FETCH_SUCCESS,
+  RESET
 } from '../actions/actionTypes';
 
 export const fetchInProgress = () => {
@@ -53,5 +54,11 @@ export const fetchPathDetails = token => {
       .catch(error => {
         dispatch(fetchFailure());
       });
+  };
+};
+
+export const reset = () => {
+  return {
+    type: RESET
   };
 };

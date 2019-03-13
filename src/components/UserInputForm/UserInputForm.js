@@ -6,19 +6,25 @@ import './UserInputForm.css';
 
 class UserInputForm extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       isSubmitClicked: false,
-      isValid: true
+      isValid: true,
+      origin: [],
+      destination: []
     };
   }
 
   originLocChanged = (lat, lng) => {
-    this.props.onOriginChng(lat, lng);
+    this.setState({
+      origin: [lat, lng]
+    });
   };
 
   destinationLocChanged = (lat, lng) => {
-    this.props.onDestinationChng(lat, lng);
+    this.setState({
+      destination: [lat, lng]
+    });
   };
 
   submitHandler = event => {
@@ -26,7 +32,18 @@ class UserInputForm extends Component {
     this.setState({
       isSubmitClicked: true
     });
-    this.props.onSubmit();
+    this.props.onSubmit(this.state.origin, this.state.destination);
+  };
+
+  resetHandler = event => {
+    event.preventDefault();
+    this.origin.autoInput.current.value = '';
+    this.destination.autoInput.current.value = '';
+    this.setState({
+      origin: [],
+      destination: []
+    });
+    this.props.resetClicked();
   };
 
   render() {
@@ -38,6 +55,11 @@ class UserInputForm extends Component {
             id='originLoc'
             onPlaceChanged={this.originLocChanged}
             placeholderText='Enter Origin Location'
+            value={this.state.originValue}
+            ref={node => {
+              this.origin = node;
+            }}
+            resetClicked={this.resetHandler.bind(this)}
           />
         </div>
         <div className='form-group'>
@@ -46,6 +68,10 @@ class UserInputForm extends Component {
             id='destinationLoc'
             onPlaceChanged={this.destinationLocChanged}
             placeholderText='Enter Destination Location'
+            value={this.state.destinationValue}
+            ref={node => {
+              this.destination = node;
+            }}
           />
         </div>
 
@@ -73,7 +99,9 @@ class UserInputForm extends Component {
         <button className='btn button mb-5' onClick={this.submitHandler}>
           {!this.state.isSubmitClicked ? 'Submit' : 'Resubmit'}
         </button>
-        <button className='btn button mb-5 marL'>Reset</button>
+        <button className='btn button mb-5 marL' onClick={this.resetHandler}>
+          Reset
+        </button>
       </form>
     );
   }

@@ -7,8 +7,8 @@ describe('respReducer', () => {
       path: [],
       error: null,
       errorMsg: '',
-      total_time: null,
-      total_distance: null,
+      totalTime: null,
+      totalDistance: null,
       isLoading: false
     });
   });
@@ -26,8 +26,8 @@ describe('respReducer', () => {
       path: [],
       error: true,
       errorMsg: 'Some Error Occured',
-      total_time: null,
-      total_distance: null,
+      totalTime: null,
+      totalDistance: null,
       isLoading: false
     });
   });
