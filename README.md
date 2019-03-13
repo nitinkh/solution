@@ -16,7 +16,7 @@ Driving route can be easily tested by adding Hoi Fai Road, Hong Kong as origin a
 
 ## Google-Maps-Api-Configuration
 
-To make this project running correctly, you need to have google API key and needs to be inserted in .env file
+To make this project running correctly, you need to have google API key and needs to be inserted as a value of REACT_APP_GOOGLE_MAP_KEY variable in .env file
 
 ## Folder Structure
 
