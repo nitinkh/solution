@@ -32,14 +32,8 @@ solution/
     index.html
     favicon.ico
   src/
-    App.css
-    App.js
-    index.css
     index.js
-    logo.svg
-    axios.js
-    configureStore.js
-    serviceWorker.js
+    .env
     actions/
         action.test.js
         actionTypes.js
@@ -54,6 +48,13 @@ solution/
             UserInputForm.css
             UserInputForm.js
             UserInputForm.test.js
+    configuration/
+        axios.js
+        configureStore.js
+    containers/
+        App/
+            App.css
+            App.js
     reducers/
         index.js
         respReducer.js

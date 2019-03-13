@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import InfoMessage from '../InfoMessage/InfoMessage';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import './UserInputForm.css';
 
@@ -75,26 +75,13 @@ class UserInputForm extends Component {
           />
         </div>
 
-        <div className='form-group'>
-          {!this.props.isFormValid && (
-            <span className='d-block text-danger'>
-              Origin and Destination are required
-            </span>
-          )}
-          {this.props.error && (
-            <span className='d-block text-danger'>{this.props.errorMsg}</span>
-          )}
-          {this.props.totalDistance && (
-            <span className='d-block text-success'>
-              Total Distance: <span>{this.props.totalDistance}</span>
-            </span>
-          )}
-          {this.props.totalTime && (
-            <span className='d-block text-success'>
-              Total Time: <span>{this.props.totalTime}</span>
-            </span>
-          )}
-        </div>
+        <InfoMessage
+          isFormValid={this.props.isFormValid}
+          error={this.props.error}
+          errorMsg={this.props.errorMsg}
+          totalTime={this.props.totalTime}
+          totalDistance={this.props.totalDistance}
+        />
 
         <button className='btn button mb-5' onClick={this.submitHandler}>
           {!this.state.isSubmitClicked ? 'Submit' : 'Resubmit'}

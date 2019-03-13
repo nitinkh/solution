@@ -1,4 +1,4 @@
-import axios from '../axios';
+import axios from '../configuration/axios';
 import {
   FECTH_INPROGRESS,
   FETCH_FAILURE,

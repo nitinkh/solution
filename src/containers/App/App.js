@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UserInputForm from './components/UserInputForm/UserInputForm';
-import MapRenderer from './components/MapRenderer/MapRender';
+import UserInputForm from '../../components/UserInputForm/UserInputForm';
+import MapRenderer from '../../components/MapRenderer/MapRender';
 import { connect } from 'react-redux';
-import { fetchToken, reset } from './actions';
+import { fetchToken, reset } from '../../actions';
 
 class App extends Component {
   static defaultProps = {
