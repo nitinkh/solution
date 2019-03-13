@@ -41,7 +41,8 @@ class UserInputForm extends Component {
     this.destination.autoInput.current.value = '';
     this.setState({
       origin: [],
-      destination: []
+      destination: [],
+      isSubmitClicked: false
     });
     this.props.resetClicked();
   };
@@ -50,7 +51,7 @@ class UserInputForm extends Component {
     return (
       <form>
         <div className='form-group'>
-          <label htmlFor='originLoc'>Starting location</label>
+          <label htmlFor='originLoc'>Starting Location</label>
           <AutoComplete
             id='originLoc'
             onPlaceChanged={this.originLocChanged}
@@ -63,7 +64,7 @@ class UserInputForm extends Component {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='destinationLoc'>Destination location</label>
+          <label htmlFor='destinationLoc'>Drop-off Point</label>
           <AutoComplete
             id='destinationLoc'
             onPlaceChanged={this.destinationLocChanged}
@@ -84,7 +85,7 @@ class UserInputForm extends Component {
         />
 
         <button className='btn button mb-5' onClick={this.submitHandler}>
-          {!this.state.isSubmitClicked ? 'Submit' : 'Resubmit'}
+          {!this.state.isSubmitClicked ? 'Submit' : 'ReSubmit'}
         </button>
         <button className='btn button mb-5 marL' onClick={this.resetHandler}>
           Reset
